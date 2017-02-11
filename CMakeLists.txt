@@ -3,9 +3,10 @@ project(theoden)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES library.cpp library.h)
+set(SOURCE_FILES src/library.cpp include/library.h include/stack.hpp)
 add_library(theoden SHARED ${SOURCE_FILES})
 include_directories(test)
+include_directories(include)
 
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
@@ -39,6 +40,6 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 # Now simply link against gtest or gtest_main as needed. Eg
-add_executable(example_test test/example_test.cpp test/example_test.cpp)
-target_link_libraries(example_test gtest_main)
-add_test(NAME example_unittest COMMAND example_test)
+add_executable(stack_test test/stack_test.cpp)
+target_link_libraries(stack_test gtest_main)
+add_test(NAME stack_unittest COMMAND stack_test)
