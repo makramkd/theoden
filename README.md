@@ -1,6 +1,6 @@
 ## Theoden
 
-My intention is for this to be a shared library that exports exports various 
+My intention is for this to be a shared library that exports various 
 abstract data types:
 
 * Stack
