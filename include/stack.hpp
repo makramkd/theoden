@@ -5,8 +5,11 @@
 #ifndef THEODEN_STACK_HPP
 #define THEODEN_STACK_HPP
 
+#include <iostream>
+
 namespace theoden {
 
+    // fwd declarations
     template<typename T>
     struct front_linked_list;
 
@@ -75,6 +78,14 @@ namespace theoden {
 
         size_t size() const {
             return _size;
+        }
+
+        void print() const {
+            auto tmp = _front;
+            while (tmp) {
+                std::cout << tmp->item << " -> ";
+                tmp = tmp->next;
+            }
         }
     };
 

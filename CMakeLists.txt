@@ -3,7 +3,7 @@ project(theoden)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES src/library.cpp include/library.h include/stack.hpp)
+set(SOURCE_FILES src/library.cpp include/library.h include/stack.hpp include/queue.hpp)
 add_library(theoden SHARED ${SOURCE_FILES})
 include_directories(test)
 include_directories(include)
@@ -40,6 +40,6 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 # Now simply link against gtest or gtest_main as needed. Eg
-add_executable(stack_test test/stack_test.cpp)
-target_link_libraries(stack_test gtest_main)
-add_test(NAME stack_unittest COMMAND stack_test)
+add_executable(all_tests test/stack_test.cpp test/queue_test.cpp)
+target_link_libraries(all_tests gtest_main)
+add_test(NAME all_tests_run COMMAND all_tests)
